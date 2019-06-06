@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  dashd_core:
+    image: dashpay/dashd
+    container_name: dashd_core_testnet
+    command: /bin/bash -c 'dashd -conf=/dash.conf -printtoconsole'
+    restart: always
+    volumes:
+      - dashd_data_testnet:/dash
+      - ./testnet-dash.conf:/dash.conf
+    ports:
+      - 29998:29998
+    expose:
+      - 29999
+      - 29997
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2000k"
+        max-file: "10"
+
+  dapi_core:
+    image: dashpay/dapi
+    container_name: dapi_core_testnet
+    command: npm run core
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - DASHCORE_RPC_HOST=dashd_core
+      - DASHCORE_RPC_PORT=29998
+      #- DASHCORE_RPC_USER=dashrpc #default
+      #- DASHCORE_RPC_PASS=password #default
+      - DASHCORE_ZMQ_HOST=dashd_core
+      - DASHCORE_ZMQ_PORT=29997
+      - DASHCORE_P2P_HOST=dashd_core
+      - DASHCORE_P2P_PORT=29999
+      #- DASHCORE_P2P_NETWORK=testnet #default
+
+volumes:
+  dashd_data_testnet:
