@@ -28,7 +28,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DASHCORE_RPC_HOST=dashd_core
+      - INSIGHT_URI=http://insight-api-testnet:3001/insight-api
+      #- RPC_SERVER_PORT=3000
       - DASHCORE_RPC_HOST=dashd_core-testnet
       - DASHCORE_RPC_PORT=29998
       #- DASHCORE_RPC_USER=dashrpc #default
@@ -38,6 +39,16 @@ services:
       - DASHCORE_P2P_HOST=dashd_core-testnet
       - DASHCORE_P2P_PORT=29999
       #- DASHCORE_P2P_NETWORK=testnet #default
+
+  insight:
+    image: dashpay/insight-api
+    container_name: insight-api-testnet
+    #ports:
+    #  - 3002:3001
+    expose:
+      - 3001
+    volumes:
+      - ./testnet-dashcore-node.json:/insight/dashcore-node.json
 
 volumes:
   dashd_data_testnet:
