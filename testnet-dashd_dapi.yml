@@ -3,7 +3,7 @@ version: '3'
 services:
   dashd_core:
     image: dashpay/dashd
-    container_name: dashd_core_testnet
+    container_name: dashd_core-testnet
     command: /bin/bash -c 'dashd -conf=/dash.conf -printtoconsole'
     restart: always
     volumes:
@@ -22,19 +22,20 @@ services:
 
   dapi_core:
     image: dashpay/dapi
-    container_name: dapi_core_testnet
+    container_name: dapi_core-testnet
     command: npm run core
     restart: always
     ports:
       - 3000:3000
     environment:
       - DASHCORE_RPC_HOST=dashd_core
+      - DASHCORE_RPC_HOST=dashd_core-testnet
       - DASHCORE_RPC_PORT=29998
       #- DASHCORE_RPC_USER=dashrpc #default
       #- DASHCORE_RPC_PASS=password #default
-      - DASHCORE_ZMQ_HOST=dashd_core
+      - DASHCORE_ZMQ_HOST=dashd_core-testnet
       - DASHCORE_ZMQ_PORT=29997
-      - DASHCORE_P2P_HOST=dashd_core
+      - DASHCORE_P2P_HOST=dashd_core-testnet
       - DASHCORE_P2P_PORT=29999
       #- DASHCORE_P2P_NETWORK=testnet #default
 
