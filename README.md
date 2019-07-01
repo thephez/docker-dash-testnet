@@ -31,3 +31,11 @@ Last 10 lines only: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml lo
 `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml exec dashd_core ls`
 
 `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml exec dashd_core dash-cli -conf=/dash.conf getinfo`
+
+## Included services
+
+| Service | Docker Image | Function |
+| --- | --- | --- |
+`dashd_core` | [dashpay/dashd](https://hub.docker.com/r/dashpay/dashd) | Dash Core Blockchain |
+`dapi_core`  | [dashpay/dapi](https://hub.docker.com/r/dashpay/dapi) | HTTP API |
+`insight_api` | [dashpay/insight-api](https://hub.docker.com/r/dashpay/insight-api) | |
