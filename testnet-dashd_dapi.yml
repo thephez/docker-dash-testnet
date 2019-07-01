@@ -40,7 +40,7 @@ services:
       - DASHCORE_P2P_PORT=29999
       #- DASHCORE_P2P_NETWORK=testnet #default
 
-  insight:
+  insight_api:
     image: dashpay/insight-api
     container_name: insight-api-testnet
     #ports:
