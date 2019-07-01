@@ -10,12 +10,12 @@
     "dashd": {
       "connect": [
         {
-          "rpchost": "dashd_core_testnet",
+          "rpchost": "dashd_core-testnet",
           "rpcport": 29998,
           "rpcuser": "dashrpc",
           "rpcpassword": "password",
-          "zmqpubrawtx": "tcp://dashd_core_testnet:29997",
-          "zmqpubhashblock": "tcp://dashd_core_testnet:29997"
+          "zmqpubrawtx": "tcp://dashd_core-testnet:29997",
+          "zmqpubhashblock": "tcp://dashd_core-testnet:29997"
         }
       ]
     },
