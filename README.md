@@ -39,3 +39,10 @@ Last 10 lines only: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml lo
 `dashd_core` | [dashpay/dashd](https://hub.docker.com/r/dashpay/dashd) | Dash Core Blockchain |
 `dapi_core`  | [dashpay/dapi](https://hub.docker.com/r/dashpay/dapi) | HTTP API |
 `insight_api` | [dashpay/insight-api](https://hub.docker.com/r/dashpay/insight-api) | Supports some DAPI API endpoints |
+
+## Mining
+
+If running on a devnet, it is possible to mine by configuring a cron entry to
+run `docker-compose exec` as follows:
+
+`*/2 * * * * /usr/local/bin/docker-compose -f </path/to/config>/docker-compose.yml exec -T dashd_core dash-cli -conf=/dash.conf generate 1`
