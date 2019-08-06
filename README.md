@@ -2,35 +2,35 @@
 
 ## Start services
 
-Foreground: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml up`
+Foreground: `docker-compose -p dash-testnet -f docker-compose.yml up`
 
-Background: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml up -d`
+Background: `docker-compose -p dash-testnet -f docker-compose.yml up -d`
 
 ## Stop services
 
-All services: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml stop`
+All services: `docker-compose -p dash-testnet -f docker-compose.yml stop`
 
-Specific service: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml stop dapi_core`
+Specific service: `docker-compose -p dash-testnet -f docker-compose.yml stop dapi_core`
 
 ## Remove components created by `up`
 
-Retain volume(s):`docker-compose -p dash-testnet -f testnet-dashd_dapi.yml down`
+Retain volume(s):`docker-compose -p dash-testnet -f docker-compose.yml down`
 
-Remove volume(s): `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml down --volume`
+Remove volume(s): `docker-compose -p dash-testnet -f docker-compose.yml down --volume`
 
 ## View logs
 
-All services: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml logs`
+All services: `docker-compose -p dash-testnet -f docker-compose.yml logs`
 
-Specific service (e.g. `dashd_core`): `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml logs -f dashd_core`
+Specific service (e.g. `dashd_core`): `docker-compose -p dash-testnet -f docker-compose.yml logs -f dashd_core`
 
-Last 10 lines only: `docker-compose -p dash-testnet -f testnet-dashd_dapi.yml logs --tail 10`
+Last 10 lines only: `docker-compose -p dash-testnet -f docker-compose.yml logs --tail 10`
 
 ## Execute command on a service
 
-`docker-compose -p dash-testnet -f testnet-dashd_dapi.yml exec dashd_core ls`
+`docker-compose -p dash-testnet -f docker-compose.yml exec dashd_core ls`
 
-`docker-compose -p dash-testnet -f testnet-dashd_dapi.yml exec dashd_core dash-cli -conf=/dash.conf getinfo`
+`docker-compose -p dash-testnet -f docker-compose.yml exec dashd_core dash-cli -conf=/dash.conf getinfo`
 
 ## Included services
 
